@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DataBite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="assets/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -44,7 +45,7 @@
                 <div class="field">
                     <label class="label">Type of Cuisine</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="'Italian'">
+                        <input class="input" type="text" placeholder="'Italian'" id="cuisine">
                         <span class="icon is-small is-left">
                             <i class="fas fa-globe"></i>
                         </span>
@@ -53,7 +54,7 @@
                 <div class="field">
                     <label class="label">Main Ingredient</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="'Chicken'">
+                        <input class="input" type="text" placeholder="'Chicken'" id="ingredient">
                         <span class="icon is-small is-left">
                             <i class="fas fa-cookie-bite"></i>
                         </span>
@@ -62,14 +63,14 @@
                 <div class="field">
                     <label class="label">Number of Servings</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="'4'">
+                        <input class="input" type="text" placeholder="'4'" id="servings">
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                         </span>
                     </div>
                 </div>
                 <div class="control">
-                    <button class="button is-light ">Submit</button>
+                    <button class="button is-light " id="userInputSubmit">Submit</button>
                 </div>
             </article>
             <article class="tile is-child notification is-warning">
@@ -113,11 +114,14 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a href="#">Kathleen McNamara</a>, and <a
-                    href="#">Paul Whurr</a>.
+                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a href="#">Kathleen McNamara</a>,
+                and <a href="#">Paul Whurr</a>.
             </p>
         </div>
     </footer>
+
+    <script src="assets/script.js"></script>
+
 
 </body>
 
