@@ -8,7 +8,7 @@
     messagingSenderId: "693471225405"
   };
   firebase.initializeApp(config);
-
+var database = firebase.database()
 
 var list = JSON.parse(localStorage.getItem("groceryList"));
 
@@ -45,7 +45,14 @@ function renderGroceryList(list) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-    } );
+    }); 
+    var itemToStore = list[i];
+    var storeUserGroceryList = {
+        listItem: itemToStore,
+    };
+    console.log(storeUserGroceryList.listItem)
+    database.ref().push(storeUserGroceryList);
+    
     }
     
 };
