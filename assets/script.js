@@ -1,3 +1,14 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC33S_VNYky9BqJO3q-rHbB98w7JHA3b5s",
+    authDomain: "databite-6d5a7.firebaseapp.com",
+    databaseURL: "https://databite-6d5a7.firebaseio.com",
+    projectId: "databite-6d5a7",
+    storageBucket: "databite-6d5a7.appspot.com",
+    messagingSenderId: "693471225405"
+  };
+  firebase.initializeApp(config);
+
 
 var list = JSON.parse(localStorage.getItem("groceryList"));
 
@@ -21,8 +32,23 @@ function renderGroceryList(list) {
         
         $("#ingredientDataDisplayed").append(row);   
            console.log(row);
+           
+           var userItem = list[i]
+        console.log(userItem);
+        // var userItem = JSON.stringify(userItem);
+        // console.log(userItem);
+        var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
+        console.log(queryURL);
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+    } );
     }
-}
+    
+};
 
 $("#add-groceries").on("click", function(event){
     event.preventDefault();
