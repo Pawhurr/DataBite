@@ -7,7 +7,7 @@ function renderGroceryList(list) {
     for (var i = 0; i < list.length; i++) {
         var row = $("<tr>")
         var groceryItem = $("<td>");
-        groceryItem.text(list[i]);
+        groceryItem.text(" " + list[i]);
 
         var groceryItemClose = $("<button>");
 
@@ -62,6 +62,9 @@ $("#userInputSubmit").on("click", function(event){
     var userInput = $("#cuisine").val().trim();
     var queryURL = "https://api.edamam.com/search?app_id=8ce974d7&app_key=a17376a22bc1da177335c089eb303318&q=" + userInput;
     
+    $("#recipeContent").empty();
+    $("#cuisine").val("");
+
     $.ajax({
         url: queryURL,
         method: "GET"
