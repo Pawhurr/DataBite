@@ -1,3 +1,4 @@
+
 var list = JSON.parse(localStorage.getItem("groceryList"));
 
 function renderGroceryList(list) {
@@ -55,4 +56,29 @@ if (!Array.isArray(list)) {
 
 renderGroceryList(list);
 console.log(list)
+
+
+$("#userInputSubmit").on("click", function(event){
+    var userInput = $("#cuisine").val().trim();
+    var queryURL = "https://api.edamam.com/search?app_id=8ce974d7&app_key=a17376a22bc1da177335c089eb303318&q=" + userInput;
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        var randomRecipe = Math.floor(Math.random() * 10);
+        console.log(randomRecipe);
+            var recipeURL = response.hits[randomRecipe].recipe.url;
+            console.log(recipeURL);
+            $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + recipeURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
+
+            
+
+        });
+
+    })
+
+
+
 
