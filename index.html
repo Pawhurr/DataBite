@@ -11,6 +11,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="field">
+                <!-- <div class="field">
                     <label class="label">Main Ingredient</label>
                     <div class="control has-icons-left">
                         <input class="input" type="text" placeholder="'Chicken'" id="ingredient">
@@ -59,8 +60,8 @@
                             <i class="fas fa-cookie-bite"></i>
                         </span>
                     </div>
-                </div>
-                <div class="field">
+                </div> -->
+                <!-- <div class="field">
                     <label class="label">Number of Servings</label>
                     <div class="control has-icons-left">
                         <input class="input" type="text" placeholder="'4'" id="servings">
@@ -68,7 +69,7 @@
                             <i class="fas fa-user"></i>
                         </span>
                     </div>
-                </div>
+                </div> -->
                 <div class="control">
                     <button class="button is-light " id="userInputSubmit">Submit</button>
                 </div>
@@ -76,22 +77,17 @@
             <article class="tile is-child notification is-warning">
                 <p class="title">Shopping List</p>
                 <p class="subtitle">With an image</p>
+                <form>
+                    <span id="grocery-item">Enter Item: <input id="groceries" type="text"><input id="add-groceries"
+                            value="Add Item" type="submit"></span>
+                </form>
+                <hr>
                 <table class="table is-striped is-fullwidth">
                     <thead>
                         <tr>
                             <th>Ingredients to Buy</th>
-                            <th>Amount Needed</th>
-                        </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Chicken</td>
-                            <td>8 oz.</td>
-                        </tr>
-                        <tr>
-                            <td>Garlic</td>
-                            <td>1 clove</td>
-                        </tr>
+                    <tbody id="ingredientDataDisplayed">
                     </tbody>
                 </table>
             </article>
@@ -114,15 +110,19 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a href="#">Kathleen McNamara</a>,
-                and <a href="#">Paul Whurr</a>.
+
+                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a
+                    href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a href="#">Paul
+                    Whurr</a>.
+
             </p>
         </div>
     </footer>
 
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
-
-
 </body>
 
 </html>
