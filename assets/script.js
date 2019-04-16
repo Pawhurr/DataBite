@@ -10,6 +10,28 @@
   firebase.initializeApp(config);
 var database = firebase.database()
 
+$("#password").show();
+$("#food-input").hide();
+$(".modal").hide();
+
+$("#clickhere").on("click", function(){
+    $(".modal").show();
+});
+
+$("#cancel").on("click", function(){
+    $(".modal").hide();
+});
+
+$("#exout").on("click", function(){
+    $(".modal").hide();
+});
+
+$("#userPasswordSubmit").on("click", function(event) {
+    event.preventDefault();
+    $("#password").hide();
+    $("#food-input").show();
+});
+
 var list = JSON.parse(localStorage.getItem("groceryList"));
 
 function renderGroceryList(list) {

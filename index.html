@@ -41,7 +41,76 @@
             </article>
         </div>
         <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-warning">
+            <article class="tile is-child notification is-warning" id="password">
+                <p class="title">Enter Credentials</p>
+                <div class="field">
+                    <label class="label">User ID</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" placeholder="'User ID'" id="userID">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-globe"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" placeholder="'Password'" id="password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <!-- <div class="field">
+                            <label class="label">Number of Servings</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="text" placeholder="'4'">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                        </div> -->
+                <div class="control">
+                    <button class="button is-light " id="userPasswordSubmit">Submit</button>
+                    <p>New to DataBite? <a href="#" id="clickhere">Click here!</a></p>
+                </div>
+                <div class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Create Credentials</p>
+                            <button class="delete" aria-label="close" id="exout"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <article class="tile is-child notification is-warning">
+                                <p class="title">Enter Credentials</p>
+                                <div class="field">
+                                    <label class="label">Create User ID</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" type="text" placeholder="'User ID'" id="newUserID">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-globe"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Create Password</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" type="password" placeholder="'Password'" id="newPassword">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success" id="newUserSubmit">Save changes</button>
+                            <button class="button" id="cancel">Cancel</button>
+                        </footer>
+                    </div>
+                </div>
+            </article>
+            <article class="tile is-child notification is-warning" id="food-input">
                 <p class="title">What are you in the mood for?</p>
                 <div class="field">
                     <label class="label">Type of Cuisine</label>
