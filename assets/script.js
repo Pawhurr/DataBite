@@ -26,6 +26,17 @@ $("#exout").on("click", function(){
     $(".modal").hide();
 });
 
+$("#newUserSubmit").on("click", function(event){
+    event.preventDefault();
+    var newUserInput = $("#newUserInput").val().trim();
+    var newPasswordInput = $("#newPassword").val().trim();
+
+    database.ref("credentials").push({ 
+        fbUserID: newUserInput,
+        fbPassword: newPasswordInput
+    });
+});
+
 $("#userPasswordSubmit").on("click", function(event) {
     event.preventDefault();
     $("#password").hide();
@@ -54,30 +65,30 @@ function renderGroceryList(list) {
         
         $("#ingredientDataDisplayed").append(row);   
            console.log(row);
-           
            var userItem = list[i]
-        console.log(userItem);
-        // var userItem = JSON.stringify(userItem);
-        // console.log(userItem);
-        var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
-        console.log(queryURL);
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-    }); 
-    var itemToStore = list[i];
-    var storeUserGroceryList = {
-        listItem: itemToStore,
-    };
-    console.log(storeUserGroceryList.listItem)
-    database.ref().push(storeUserGroceryList);
+           console.log(userItem);
+           // var userItem = JSON.stringify(userItem);
+           // console.log(userItem);
+           var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
+           console.log(queryURL);
+   
+       $.ajax({
+           url: queryURL,
+           method: "GET"
+       }).then(function (response) {
+           console.log(response);
+       }); 
+       var itemToStore = list[i];
+       var storeUserGroceryList = {
+           listItem: itemToStore,
+       };
+       console.log(storeUserGroceryList.listItem)
+       database.ref().push(storeUserGroceryList);
+   
+       }
+   
+   };
     
-    }
-    
-};
 
 $("#add-groceries").on("click", function(event){
     event.preventDefault();
