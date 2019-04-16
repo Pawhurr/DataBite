@@ -76,7 +76,13 @@ $("#userInputSubmit").on("click", function(event){
             console.log(recipeURL);
             $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + recipeURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
 
-            
+            var ingredientAdd = response.hits[randomRecipe].recipe.ingredientLines;
+            console.log(ingredientAdd);
+            for (var i = 0; i < ingredientAdd.length; i++) {
+                console.log(ingredientAdd[i]);
+                list.push(ingredientAdd[i]);
+                renderGroceryList(list);
+            }
 
         });
 
