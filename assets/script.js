@@ -8,9 +8,10 @@
     messagingSenderId: "693471225405"
   };
   firebase.initializeApp(config);
+
 var database = firebase.database()
 
-$("#password").show();
+$("#password-input").show();
 $("#food-input").hide();
 $(".modal").hide();
 
@@ -26,25 +27,37 @@ $("#exout").on("click", function(){
     $(".modal").hide();
 });
 
-$("#newUserSubmit").on("click", function(event){
-    event.preventDefault();
-    var newUserInput = $("#newUserInput").val().trim();
-    var newPasswordInput = $("#newPassword").val().trim();
 
-    database.ref("credentials").push({ 
-        fbUserID: newUserInput,
-        fbPassword: newPasswordInput
-    });
-});
+// $("#newUserSubmit").on("click", function(event){
+//     event.preventDefault();
+//     var newUserInput = $("#newUserID").val();
+//     var newPasswordInput = $("#newPassword").val();
+
+//     database.ref(newUserInput).push({ 
+//         fbPassword: newPasswordInput
+//     });
+//     console.log(newUserInput);
+//     console.log(newPasswordInput);
+//     $(".modal").hide();
+//     $("#newUserInput").val("");
+//     $("#newPassword").val("");
+// });
 
 $("#userPasswordSubmit").on("click", function(event) {
-    event.preventDefault();
-    $("#password").hide();
+    // event.preventDefault();
+    // var username = $("#userID").val();
+    // var userpassword = $("#password").val();
+    // console.log(database.ref(username.fbPassword))
+
+    
+    // if ((username === database.ref(username)) && (userpassword === database.ref(username.fbPassword))) {
+    $("#password-input").hide();
     $("#food-input").show();
+    // };
 });
 
-var list = JSON.parse(localStorage.getItem("groceryList"));
 
+var list = JSON.parse(localStorage.getItem("groceryList"));
 function renderGroceryList(list) {
     $("#ingredientDataDisplayed").empty();
 
@@ -64,20 +77,12 @@ function renderGroceryList(list) {
         row.append(groceryItem);
         
         $("#ingredientDataDisplayed").append(row);   
-           console.log(row);
+        //    console.log(row);
+           
            var userItem = list[i]
+
            console.log(userItem);
-           // var userItem = JSON.stringify(userItem);
-           // console.log(userItem);
-      //      var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
-      //      console.log(queryURL);
-   
-      //  $.ajax({
-      //      url: queryURL,
-      //      method: "GET"
-      //  }).then(function (response) {
-      //      console.log(response);
-      //  }); 
+           
        var itemToStore = list[i];
        var storeUserGroceryList = {
            listItem: itemToStore,
@@ -86,9 +91,19 @@ function renderGroceryList(list) {
        database.ref().push(storeUserGroceryList);
    
        }
+        
+
    
-   };
     
+}
+var storeUserGroceryList = {
+    listItem: [],
+};
+storeUserGroceryList.listItem = list
+console.log(storeUserGroceryList)
+database.ref().push(storeUserGroceryList);
+    
+};
 
 $("#add-groceries").on("click", function(event){
     event.preventDefault();
@@ -121,38 +136,42 @@ if (!Array.isArray(list)) {
 }
 
 renderGroceryList(list);
-console.log(list)
+// console.log(list)
 
 
-$("#userInputSubmit").on("click", function(event){
-    var userInput = $("#cuisine").val().trim();
-    var queryURL = "https://api.edamam.com/search?app_id=8ce974d7&app_key=a17376a22bc1da177335c089eb303318&q=" + userInput;
-    
-    $("#recipeContent").empty();
-    $("#cuisine").val("");
+$("#userInputSubmit").on("click", getRecipe);
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        var randomRecipe = Math.floor(Math.random() * 10);
-        console.log(randomRecipe);
-            var recipeURL = response.hits[randomRecipe].recipe.url;
-            console.log(recipeURL);
-            $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + recipeURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
+$(document).on("click", "#reset", getRecipe);
 
-            var ingredientAdd = response.hits[randomRecipe].recipe.ingredientLines;
-            console.log(ingredientAdd);
-            for (var i = 0; i < ingredientAdd.length; i++) {
-                console.log(ingredientAdd[i]);
-                list.push(ingredientAdd[i]);
-                renderGroceryList(list);
-            }
 
-        });
+function getRecipe(){
+var userInput = $("#cuisine").val().trim();
+var queryURL = "https://api.edamam.com/search?app_id=8ce974d7&app_key=a17376a22bc1da177335c089eb303318&q=" + userInput;
 
+$("#recipeContent").empty();
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response);
+    var randomRecipe = Math.floor(Math.random() * 10);
+    console.log(randomRecipe);
+        var recipeURL = response.hits[randomRecipe].recipe.url;
+        console.log(recipeURL);
+        $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + recipeURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
+        $("#recipeContent").append("<div class='control'><button class='button is-warning ' id='reset'>Search Again</button></div><br><div class='control'><button class='button is-warning ' id='shopPush'>Let's Shop!</button></div>")
+        var ingredientAdd = response.hits[randomRecipe].recipe.ingredientLines;
+        console.log(ingredientAdd);
+        $("#shopPush").on("click", function (){
+        for (var i = 0; i < ingredientAdd.length; i++) {
+            console.log(ingredientAdd[i]);
+            list.push(ingredientAdd[i]);
+            renderGroceryList(list);
+        }
     })
+    })
+}
 
 // function initMap() {
 //     var charlotte = {lat: 35.228912, lng: -80.835326};
