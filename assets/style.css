@@ -81,3 +81,21 @@
   #logoHeader{
     width: 25%;
   }
+  
+  #header{
+    padding: 1rem .5rem;
+  }
+  #headerBorder{
+    margin-bottom: 1rem;
+  }
+  #footer{
+    padding: 1rem;
+  }
+  a{
+    color: #FFB227;
+  }
+  @media (max-width:768px){
+    #logoHeader{
+      width: 50%;
+    }
+  }

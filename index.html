@@ -18,8 +18,8 @@
 
 <body>
 
-    <section class="hero is-warning is-bold">
-        <div class="hero-body">
+    <section id="headerBorder" class="hero is-warning is-bold">
+        <div id="header" class="hero-body">
             <div class="container">
                 
                 <h1 class="title">
@@ -36,7 +36,7 @@
             <article class="tile is-child notification is-light">
                 <div class="content">
                     <p class="title">Recipe</p>
-                    <p class="subtitle">Random recipe generates here</p>
+                    <p class="subtitle">Explore new foods!</p>
                     <div class="content" id="recipeContent">
                         <!-- Content -->
                         <div class="tile is-child notification is-warning" id="recipeCard">
@@ -121,7 +121,7 @@
                 <div class="field">
                     <label class="label">Type of Cuisine</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="'Italian'" id="cuisine">
+                        <input class="input" type="text" placeholder="'Italian'" id="cuisine" name="cuisine">
                         <span class="icon is-small is-left">
                             <i class="fas fa-globe"></i>
                         </span>
@@ -151,11 +151,22 @@
             </article>
             <article class="tile is-child notification is-warning">
                 <p class="title">Shopping List</p>
-                <p class="subtitle">With an image</p>
-                <form>
-                    <span id="grocery-item">Enter Item: <input id="groceries" type="text"><input id="add-groceries"
+                <p class="subtitle">Store ingredients from recipe here.</p>
+                <!-- <form>
+                    <span id="grocery-item"><strong>Enter Item: </strong><input id="groceries" type="text"><input id="add-groceries"
                             value="Add Item" type="submit"></span>
-                </form>
+                </form> -->
+                <div class="field">
+                    <label class="label">Enter Item: </label>
+                    <div class="control has-icons-left">
+                        <input id="groceries" class="input" type="text" placeholder="'Ingredient'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-cookie-bite"></i>
+                        </span>
+                    </div>
+                </div>
+                <button class="button is-light" id="add-groceries" value="Add Item" type="submit">Submit</button>
+
                 <hr>
                 <table class="table is-striped is-fullwidth">
                     <thead>
@@ -193,11 +204,11 @@
 
 
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="content has-text-centered">
             <p>
                 <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a
-                    href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a href="#">Paul
+                    href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a href="https://pawhurr.github.io/">Paul
                     Whurr</a>.
             </p>
         </div>
