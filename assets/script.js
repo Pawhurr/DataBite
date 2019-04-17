@@ -16,7 +16,7 @@ $("#food-input").show();
 $(".modal").hide();
 
 $("#clickhere").on("click", function(){
-    $(".modal").show();
+    $(".modal").show(); 
 });
 
 $("#cancel").on("click", function(){
@@ -102,6 +102,8 @@ var storeUserGroceryList = {
 storeUserGroceryList.listItem = list
 console.log(storeUserGroceryList)
 database.ref().push(storeUserGroceryList);
+    
+
 
 $("#add-groceries").on("click", function(event){
     event.preventDefault();
@@ -157,7 +159,9 @@ $.ajax({
     console.log(randomRecipe);
         var recipeURL = response.hits[randomRecipe].recipe.url;
         console.log(recipeURL);
-        $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + recipeURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
+        var newURL = "https://" + recipeURL.split("//")[1]
+        console.log("new",newURL)
+        $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + newURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
         $("#recipeContent").append("<div class='control'><button class='button is-warning ' id='reset'>Search Again</button></div><br><div class='control'><button class='button is-warning ' id='shopPush'>Let's Shop!</button></div>")
         var ingredientAdd = response.hits[randomRecipe].recipe.ingredientLines;
         console.log(ingredientAdd);
