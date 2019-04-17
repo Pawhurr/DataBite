@@ -10,7 +10,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-
+    <!-- <script type="text/javascript" -->
+        <!-- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl6OBITO6KZb7o_ODVT7qClgJ2HYsHnok&libraries=places"></script> -->
+        
 
 </head>
 
@@ -19,6 +21,7 @@
     <section class="hero is-warning is-bold">
         <div class="hero-body">
             <div class="container">
+                
                 <h1 class="title">
                     DataBite
                 </h1>
@@ -164,10 +167,21 @@
         <div class="tile is-parent has-text-centered">
             <article class="tile is-child notification is-light">
                 <div class="content">
-                    <p class="title">Shopping Site</p>
-                    <p class="subtitle">Items populated from shopping site go here</p>
-                    <div class="content">
-                        <!-- Content -->
+                    <p class="title">Local Grocery Stores</p>
+                    <p class="subtitle">Find a store near you.</p>
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input id="pac-input" class="controls" type="text" placeholder="Zip, grocery stores">
+                        </div>
+                        <div class="control">
+                            <a id="submitZipcode" class="button is-info">
+                                Locate
+                            </a>
+                        </div>
+                    </div>
+                    <div id="groceryStoreMap" class="content">
+                        
+                        <div id="map"></div>
                     </div>
                 </div>
             </article>
@@ -189,6 +203,10 @@
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
+    <script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyBl6OBITO6KZb7o_ODVT7qClgJ2HYsHnok
+        &libraries=places&callback=initAutocomplete"></script>
+
+    
 </body>
 
 </html>
