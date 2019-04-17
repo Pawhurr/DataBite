@@ -11,8 +11,8 @@
 
 var database = firebase.database()
 
-$("#password-input").show();
-$("#food-input").hide();
+$("#password-input").hide();
+$("#food-input").show();
 $(".modal").hide();
 
 $("#clickhere").on("click", function(){
