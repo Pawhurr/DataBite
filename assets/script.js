@@ -20,7 +20,7 @@ $("#clickhere").on("click", function(){
 });
 
 $("#cancel").on("click", function(){
-    $(".modal").hide();
+    $(".modal").hide(); 
 });
 
 $("#exout").on("click", function(){
