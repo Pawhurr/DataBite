@@ -81,7 +81,7 @@
   #logoHeader{
     width: 25%;
   }
-
+  
   #header{
     padding: 1rem .5rem;
   }
@@ -93,4 +93,9 @@
   }
   a{
     color: #FFB227;
+  }
+  @media (max-width:768px){
+    #logoHeader{
+      width: 50%;
+    }
   }
