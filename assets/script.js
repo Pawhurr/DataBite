@@ -69,15 +69,15 @@ function renderGroceryList(list) {
            console.log(userItem);
            // var userItem = JSON.stringify(userItem);
            // console.log(userItem);
-           var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
-           console.log(queryURL);
+      //      var queryURL = "https://chompthis.com/api/product-search.php?name=" + userItem + "&token=HngToszRNkx1vk2zJ4";
+      //      console.log(queryURL);
    
-       $.ajax({
-           url: queryURL,
-           method: "GET"
-       }).then(function (response) {
-           console.log(response);
-       }); 
+      //  $.ajax({
+      //      url: queryURL,
+      //      method: "GET"
+      //  }).then(function (response) {
+      //      console.log(response);
+      //  }); 
        var itemToStore = list[i];
        var storeUserGroceryList = {
            listItem: itemToStore,
@@ -178,7 +178,7 @@ function initAutocomplete() {
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps].push(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function() {
