@@ -1,3 +1,5 @@
+  $(document).ready(function(){
+  
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyC33S_VNYky9BqJO3q-rHbB98w7JHA3b5s",
@@ -14,6 +16,9 @@ var database = firebase.database()
 $("#password-input").hide();
 $("#food-input").show();
 $(".modal").hide();
+$("#userInputSubmit").show();
+$("#loadingBtn").hide();
+$("#flipBtn").hide();
 
 $("#clickhere").on("click", function(){
     $(".modal").show(); 
@@ -143,21 +148,36 @@ renderGroceryList(list);
 
 
 $("#userInputSubmit").on("click", function(event) {
+  event.preventDefault();
   $(".error").remove();
   var cuisineVal = $("#cuisine").val().trim();
   if (cuisineVal.length < 1) {
     $("#cuisine").after('<span class="error">This field is required</span>');
   } else {
     getRecipe();
-  }
-});
+    $("#userInputSubmit").hide();
+    $("#loadingBtn").show();
+    run();
+    }
 
-$(document).on("click", "#reset", getRecipe);
+    });
+
+$("#flipBtn").on("click", function(){
+  $("#card").flip(true);
+})
+
+$(document).on("click", "#reset", function(){
+  $("#card").flip(false);
+  $("#flipBtn").hide();
+  $("#userInputSubmit").show();
+
+});
 
 
 function getRecipe(){
 var userInput = $("#cuisine").val().trim();
 var queryURL = "https://api.edamam.com/search?app_id=8ce974d7&app_key=a17376a22bc1da177335c089eb303318&q=" + userInput;
+
 
 $("#recipeContent").empty();
 
@@ -172,8 +192,8 @@ $.ajax({
         console.log(recipeURL);
         var newURL = "https://" + recipeURL.split("//")[1]
         console.log("new",newURL)
-        $("#recipeContent").append("<iframe style='width: 100%; height: 600px; overflow: show;' src='" + newURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
-        $("#recipeContent").append("<div class='control'><button class='button is-warning ' id='reset'>Search Again</button></div><br><div class='control'><button class='button is-warning ' id='shopPush'>Let's Shop!</button></div>")
+        $("#recipeContent").append("<iframe style='width: 100%; height: 520px; overflow: show;' src='" + newURL + "' width='100' height='100' scrolling='yes'>Iframes not supported</iframe>")
+        $("#recipeContent").append("<div class='control'><button class='button is-warning ' id='reset'>Search Again</button><span>  </span><button class='button is-warning ' id='shopPush'>Let's Shop!</button></div>")
         var ingredientAdd = response.hits[randomRecipe].recipe.ingredientLines;
         console.log(ingredientAdd);
         $("#shopPush").on("click", function (){
@@ -266,3 +286,34 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
+
+// $("#recipeCard1").on("click", function(){
+//   $("#recipeCard1").animate({height: "550px"});
+// })
+
+
+
+$("#card").flip({
+  trigger: 'manual'
+});
+var intervalId;
+var number = 3;
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+}
+
+function stop() {
+    clearInterval(intervalId);
+    number = 3;
+}
+
+function decrement() {
+	number--
+	if (number === 0) {
+		$("#loadingBtn").hide()
+    $("#flipBtn").show()
+    stop();
+	}
+}
+})
