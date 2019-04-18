@@ -1,5 +1,3 @@
-  $(document).ready(function(){
-  
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyC33S_VNYky9BqJO3q-rHbB98w7JHA3b5s",
@@ -229,9 +227,9 @@ function initAutocomplete() {
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('zipCodeInput');
-  var options = {
-    types: "supermarket",
-  };
+  // var options = {
+  //   types: "supermarket",
+  // };
   var searchBox = new google.maps.places.SearchBox(input);
   // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -314,11 +312,10 @@ function stop() {
 }
 
 function decrement() {
-	number--
-	if (number === 0) {
-		$("#loadingBtn").hide()
+    number--
+    if (number === 0) {
+        $("#loadingBtn").hide()
     $("#flipBtn").show()
     stop();
-	}
+    }
 }
-})
