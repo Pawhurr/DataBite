@@ -8,6 +8,7 @@
     <title>DataBite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="icon" type="image/png" href="databyteFavicon2.png" sizes="32x32" />
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
@@ -211,7 +212,21 @@
                             </a>
                         </div>
                     </div> -->
-                    <input id="pac-input" class="controls" type="text" placeholder="grocery store, Zip code">
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input id="zipCodeInput" class="input" type="text" placeholder="28209">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                        <!-- <div class="control">
+                            <a id="submitZipCode" class="button is-info">
+                                Locate
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <!-- <input id="pac-input" class="controls" type="text" placeholder="grocery store, Zip code"> -->
                     <div id="groceryStoreMap" class="content">
                         <div id="map"></div>
                     </div>
@@ -225,7 +240,8 @@
     <footer id="footer" class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a
+                <strong>DataBite</strong> created by <a
+                    href="https://dumpstro.github.io/Basic-Portfolio/index.html">Justin Summers</a>, <a
                     href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a
                     href="https://pawhurr.github.io/">Paul
                     Whurr</a>.
