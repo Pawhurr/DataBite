@@ -10,10 +10,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="icon" type="image/png" href="databyteFavicon2.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="databyteFavicon2.png" sizes="32x32" />
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-    
-        
+
+
 
 </head>
 
@@ -22,9 +22,9 @@
     <section id="headerBorder" class="hero is-warning is-bold">
         <div id="header" class="hero-body">
             <div class="container">
-                
+
                 <h1 class="title">
-                   <img id="logoHeader" src="transparent-logo2.png">
+                    <img id="logoHeader" src="transparent-logo2.png">
                 </h1>
                 <p class="subtitle">
                     Information you <strong>crave</strong>!
@@ -191,7 +191,21 @@
                             </a>
                         </div>
                     </div> -->
-                    <input id="pac-input" class="controls" type="text" placeholder="grocery store, Zip code">
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input id="zipCodeInput" class="input" type="text" placeholder="28209">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                        <!-- <div class="control">
+                            <a id="submitZipCode" class="button is-info">
+                                Locate
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <!-- <input id="pac-input" class="controls" type="text" placeholder="grocery store, Zip code"> -->
                     <div id="groceryStoreMap" class="content">
                         <div id="map"></div>
                     </div>
@@ -205,8 +219,10 @@
     <footer id="footer" class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>DataBite</strong> created by <a href="#">Justin Summers</a>, <a
-                    href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a href="https://pawhurr.github.io/">Paul
+                <strong>DataBite</strong> created by <a
+                    href="https://dumpstro.github.io/Basic-Portfolio/index.html">Justin Summers</a>, <a
+                    href="https://mcnamarakc.github.io/Bootstrap-Portfolio/">Kathleen McNamara</a>, and <a
+                    href="https://pawhurr.github.io/">Paul
                     Whurr</a>.
             </p>
         </div>
@@ -215,11 +231,11 @@
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
-    <script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyBl6OBITO6KZb7o_ODVT7qClgJ2HYsHnok
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl6OBITO6KZb7o_ODVT7qClgJ2HYsHnok
         &libraries=places&callback=initAutocomplete"></script>
-        
 
-    
+
+
 </body>
 
 </html>
