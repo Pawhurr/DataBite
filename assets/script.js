@@ -107,16 +107,19 @@ database.ref().push(storeUserGroceryList);
 
 $("#add-groceries").on("click", function(event){
     event.preventDefault();
+    $(".error").remove();
     
     var groceryInputValue = $("#groceries").val().trim();
     console.log(groceryInputValue);
 
-    list.push(groceryInputValue);
-    renderGroceryList(list);
-
-    localStorage.setItem("groceryList", JSON.stringify(list));
-    $("#groceries").val("");
-
+    if (groceryInputValue.length < 1) {
+      $("#groceries").after('<span class="error">This field is required</span>')
+    } else {
+      list.push(groceryInputValue);
+      renderGroceryList(list);
+      localStorage.setItem("groceryList", JSON.stringify(list));
+      $("#groceries").val("");
+    }
     
 });
 
@@ -139,7 +142,15 @@ renderGroceryList(list);
 // console.log(list)
 
 
-$("#userInputSubmit").on("click", getRecipe);
+$("#userInputSubmit").on("click", function(event) {
+  $(".error").remove();
+  var cuisineVal = $("#cuisine").val().trim();
+  if (cuisineVal.length < 1) {
+    $("#cuisine").after('<span class="error">This field is required</span>');
+  } else {
+    getRecipe();
+  }
+});
 
 $(document).on("click", "#reset", getRecipe);
 
@@ -260,5 +271,3 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
-
-
