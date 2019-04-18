@@ -103,3 +103,24 @@
       width: 50%;
     }
   }
+
+  #recipeCard1 {
+    height: 0px;
+
+  }
+
+  #card {
+    height: 600px;
+  }
+
+  #cardlogo {
+    width: 50%;
+  }
+
+  #flipfront {
+    height: 600px;
+  }
+
+  #flipback {
+    height: 600px;
+  }
