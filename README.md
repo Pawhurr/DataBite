@@ -1,5 +1,7 @@
 # DataBite
 
+![DataBite](https://raw.githubusercontent.com/Pawhurr/DataBite/master/Capture.PNG)
+
 ## DataBite: All the information you crave
 
 DataBite is an app designed to add spontaneity to evening meals or help make the decision of what to eat.  Users begin by typing in what kind of food or cuisine they are looking for, such as burgers or Italian.  The app then generates a random recipe in that category.  If the user doesn't like what they see, they can search again.  When they feel the recipe looks good, they can click to add the ingredients automatically to a shopping list.  
